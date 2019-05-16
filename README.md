@@ -34,12 +34,12 @@ Instagram
 
 * To run the tests for the class files:
 
-        $ python3.6 manage.py tests image
+        $ python3.6 manage.py tests profile
 
 
 ## Deployment
 
-For deployment to heroku,please follow instructions here (https://gist.github.com/newtonkiragu/42f2500e56d9c2375a087233587eddd0)
+For deployment to Heroku,please follow instructions here (https://gist.github.com/newtonkiragu/42f2500e56d9c2375a087233587eddd0)
 
 
 ## Authors
