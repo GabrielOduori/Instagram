@@ -1,4 +1,28 @@
-<h1>
+{% extends 'base.html' %}
+{{block.supper}}
+{% load static %}
+{% block content %}
 
-    This is instagram
-</h1>
+
+{% include 'navbar.html' %}
+<div  class="container ">
+    <img src="static/img/svg/in.svg" alt="">
+    <img src="/static/img/instagram.jpg" alt="">
+    <div class="row">
+      <div class="col-md-7 contain">
+
+        <img src="https://www.instagram.com/static/images/homepage/screenshot4.jpg/842fe5699220.jpg" width="240">
+
+        
+      </div>
+
+
+      </div>
+
+
+  </div>
+
+  {% include 'footer.html' %}
+
+
+{% endblock %}
