@@ -5,17 +5,17 @@
 
 {% include 'navbar.html' %}
 
-<div class="container ">
+<div class="container " id="profile">
 <h3>Profile</h3>
 
 {% if user.is_authenticated %}
 
-Username: {{user.username}}<br>
-Name:{{user.first_name}} <br>
+<p>Username: {{user.username}}<br>
 Bio: {{user.profile.bio}}<br>
-<img src="{{user.profile.profile_photo.url}}" width="240">
+<img src="{{user.profile.profile_photo.url}}" width="240" style="border-radius: 25px">
 <br>
-<a href="{url 'edit_profile' }"> <button type="button" class="btn btn-light">Edit Profile</button></a><a id="prompt"<i class="fas fa-cog fa-spin"></i></a>
+<br>
+<a href="{% url 'edit_profile' %}"> <button type="button" class="btn btn-info">Edit Profile</button></a>
 
 
 {% endif %}
@@ -55,7 +55,7 @@ Bio: {{user.profile.bio}}<br>
 {% for image in images %}
     <div class="col-md-4">
         <div class="card mb-2">
-            <img class="card-img-top" src="{{ image.image.url }}" />
+            <img class="card-img-top" src="{{ image.image.url }}"  />
             <div class="card-body">
                 <!-- <h5 class="card-title"></h5> -->
                 </a>
