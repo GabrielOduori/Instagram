@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+{% if streams %}
+<div class="container" id="image-streams">
+    {% for image in streams %}
+        <div class="card" style="max-width: 400px">
+            <img class="card-img-top" src="{{image.image.url}}" > 
+            <div class="card-body"></div>
+            <div class="card-footer">
+                <h6>Comments</h6>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    
+
+{% else %}
+
+<h2> No images in the stream yet! </h2>
+
+
+
+{% endif %}
+
+{% endblock %}
