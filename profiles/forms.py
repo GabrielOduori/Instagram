@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import Image, Comment
 
 
 class UserRegisterForm(UserCreationForm):
@@ -9,3 +10,47 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+    
+    
+        
+class NewImageForm(forms.ModelForm):
+    class Meta:
+        model  =  Image
+        exclude = ['created_on', 'image_name','image_name','image_caption', 'profile']
+        
+        
+        
+        
+class CommentForm(forms.Form):
+    author = forms.CharField(max_length=60, widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Your Name"
+        })
+    )
+    body = forms.CharField(widget=forms.Textarea(
+        attrs={
+            "class": "form-control",
+            "placeholder": "Leave a comment!"
+        })
+    )
+    
+    
+    
+class UploadImageForm(forms.ModelForm):
+    class Meta:
+        model  =  Image
+        exclude = ['created_on', 'image_name','image_name','image_caption', 'profile']
+        
+        
+        
+        
+class EditUserProfile(UserChangeForm):
+    
+        class Meta:
+            model  = User
+            fields = [
+                'email',
+                'first_name',
+                'last_name',
+                'password'
+            ]
