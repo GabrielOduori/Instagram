@@ -13,10 +13,16 @@ class UserRegisterForm(UserCreationForm):
     
     
         
-class NewImageForm(forms.ModelForm):
+class UploadImageForm(forms.ModelForm):
     class Meta:
         model  =  Image
-        exclude = ['created_on', 'image_name','image_name','image_caption', 'profile']
+        
+        fields = [
+            
+            'image_name',
+            'image_caption',
+            'image',
+        ]
         
         
         
@@ -33,15 +39,7 @@ class CommentForm(forms.Form):
             "placeholder": "Leave a comment!"
         })
     )
-    
-    
-    
-class UploadImageForm(forms.ModelForm):
-    class Meta:
-        model  =  Image
-        exclude = ['created_on', 'image_name','image_name','image_caption', 'profile']
-        
-        
+            
         
         
 class EditUserProfile(UserChangeForm):
