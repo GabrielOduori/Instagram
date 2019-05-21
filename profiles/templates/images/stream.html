@@ -9,10 +9,14 @@
         <div class="card" style="max-width: 400px">
             <img class="card-img-top" src="{{image.image.url}}" > 
             <div class="card-body"></div>
+            <p>{{image.image_caption}}</p>
             <div class="card-footer">
-                <h6>Comments</h6>
+                <a href=""><i class="far fa-thumbs-up" style="font-size: x-large;margin-left: 10px;"></i></a>
+                <a href=""><i class="far fa-comment" style="font-size: x-large;margin-left: 10px;"></i></a>
+                
             </div>
         </div>
+        <br>
     {% endfor %}
 </div>
     
