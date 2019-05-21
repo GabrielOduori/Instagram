@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{{block.supper}}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="container ">
+<h3>Profile</h3>
+
+{% if user.is_authenticated %}
+
+Username: {{user.username}}<br>
+Name:{{user.first_name}} <br>
+Bio: {{user.profile.bio}}<br>
+<img src="{{user.profile.profile_photo.url}}" width="240">
+<br>
+<a href="{url 'edit_profile' }"> <button type="button" class="btn btn-light">Edit Profile</button></a><a id="prompt"<i class="fas fa-cog fa-spin"></i></a>
+
+
+{% endif %}
+</div>
+<!-- <div class="container">
+{% for image in images %}
+<div>   
+
+
+<p>{{image.image_name}}</p>
+<a href="{%  url 'image_detail' id=image.id %}"><img src="{{image.image.url}}" width="240"></a>
+
+<form method="POST" action="{% url 'add_comment' id=image.id %}">
+{% csrf_token %}
+<input type="text" name = "comments_body">
+<input type="submit" >
+
+</form>
+</div>
+
+
+
+
+{% endfor %}
+
+
+
+</div> -->
+<hr>
+<div class="container">
+
+
+
+
+<h1>My posted images</h1>
+<div class="row">
+{% for image in images %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ image.image.url }}" />
+            <div class="card-body">
+                <!-- <h5 class="card-title"></h5> -->
+                </a>
+            </div>
+            <small class="text-muted">Posted : {{image.created_on|timesince}}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+
+<hr>
+
+{% endblock %}
+
+
