@@ -11,7 +11,7 @@ class ImageAdmin(admin.ModelAdmin):
     
     
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['body','author' ,'created_on']
+    list_display = ['id','image_id','image','body','author' ,'created_on']
     
     
 admin.site.register(Profile, ProfileAdmin)
