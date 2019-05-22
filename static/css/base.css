@@ -1,9 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=The+Girl+Next+Door&display=swap)
+@import url(https://fonts.googleapis.com/css?family=The+Girl+Next+Door&display=swap);
 
 
-.instagram{
+
+
+
+body{
     font-family: 'The Girl Next Door', cursive;
 }
+
+
 .card {
     margin: 0 auto; /* Added */
     float: none; /* Added */
@@ -31,3 +36,22 @@
     border: 3px solid green;
     padding: 10px;
   }
+
+
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+
+
+
+h3{
+    color:violet;
+    font-family: 'Indie Flower', cursive;
+    font-size: 80;
+}
+
+#profile{
+    color: red;
+}
