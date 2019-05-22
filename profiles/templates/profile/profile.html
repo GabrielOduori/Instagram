@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
-{{block.supper}}
-{% load crispy_forms_tags %}
 {% block content %}
 
-{% include 'navbar.html' %}
-
-<div class="container " id="profile">
-<h3>Profile</h3>
+<div class="container " id="profile" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+<h3 >Profile</h3>
 
 {% if user.is_authenticated %}
 
@@ -15,7 +11,9 @@ Bio: {{user.profile.bio}}<br>
 <img src="{{user.profile.profile_photo.url}}" width="240" style="border-radius: 25px">
 <br>
 <br>
-<a href="{% url 'edit_profile' %}"> <button type="button" class="btn btn-info">Edit Profile</button></a>
+<a href="{% url 'edit_profile' %}"> <button type="button" class="btn btn-info btn-sm">Edit Profile</button></a>
+<a href=""> <button type="button" class="btn btn-primary btn-sm">Following</button></a>
+<a href=""> <button type="button" class="btn btn-success btn-sm">Followers</button></a>
 
 
 {% endif %}
@@ -45,13 +43,15 @@ Bio: {{user.profile.bio}}<br>
 
 </div> -->
 <hr>
-<div class="container">
+<div class="container" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
 
 
 
-
+{% if images %}
 <h1>My posted images</h1>
 <div class="row">
+
+
 {% for image in images %}
     <div class="col-md-4">
         <div class="card mb-2">
@@ -68,6 +68,11 @@ Bio: {{user.profile.bio}}<br>
 
 </div>
 
+{% else %}
+
+<h5> There are still no images for user : {{user.username}}</h5>
+
+{% endif %}
 <hr>
 
 {% endblock %}
