@@ -14,6 +14,7 @@ urlpatterns =[
     url(r'^register/', views.register_user, name = 'register'),
     url(r'^images/(?P<id>\d+)/$', views.image_detail, name = 'image_detail'),
     url(r'^images/(?P<id>\d+)/comment', views.add_comment, name = 'add_comment'),
+    url(r'^search/',views.search_user,name='search'),
     
     
     
