@@ -52,6 +52,12 @@ class Image(models.Model):
      
     def delete_image(self):
         self.delete()
+        
+        
+    @classmethod
+    def search_users(cls,term):
+        result=cls.objects.filter(user__username__icontains=term)
+        return result
 
      
      
