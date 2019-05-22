@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-{% include 'navbar.html' %}
+
 <div class="container">
     <div class="content-section">
         <form action="/edit_profile/" method='POST'>
@@ -11,7 +11,7 @@
                 {{ form.as_p}}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Edit Profile</button>
+                <button class="btn btn-outline-info" type="submit">Submit</button>
             </div>
         </form > 
         <div class="border-top pt-3">
