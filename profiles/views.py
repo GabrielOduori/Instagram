@@ -67,7 +67,7 @@ def register_user(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Hi {username}, your account has been created!')
-            return redirect("/accounts/login")
+            return redirect("/profile/profile")
     else:
         form = UserRegisterForm()
         context = {'form':form}
@@ -75,13 +75,17 @@ def register_user(request):
     
 
 def stream(request):
+    # image = Image.objects.get(pk = id)
     
     streams = Image.objects.all().order_by('-created_on')
-    comments = Comment.objects.filter()
+    # comments = Comment.objects.filter()
+    comments = Comment.objects.all()
     
     context = {
         "streams":streams,
         "comments":comments,
+        # "image":image,
+        
         }
     return render(request,'images/stream.html', context)
 
@@ -116,12 +120,12 @@ def add_comment(request, id):
     
     Comment.objects.create(image=image, author = profile, body=body)
     
-    return redirect('profile')
+    return redirect('stream')
 
 
 
 
-
+@login_required
 def edit_profile(request):
     if request == 'POST':
         form  = EditUserProfile(request.POST, instance = request.user)
@@ -136,4 +140,20 @@ def edit_profile(request):
     
 
 
+def search_user(request):
     
+    if 'user' in request.GET and request.GET['user']:
+        term=request.GET.get("user")
+        found=Image.search_users(term)
+        message=f'{term}'
+        
+        context = {
+            "message":message,
+            "founds":found,
+            "term":term
+            }
+
+        return render(request,'profile/search.html',context)
+    else:
+        message="Please feed in a username to be searched"
+        return render(request,"profile/search.html",{"message":message})
