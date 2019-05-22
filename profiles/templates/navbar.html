@@ -1,9 +1,9 @@
 
 
-      <nav id="nav" class="navbar sticky-top navbar-expand-lg navbar-light">
+      <nav id="nav" class="navbar sticky-top navbar-expand-lg navbar-light" style="font-family: monospace">
         <div class="container">
           <div class="col-md-4">
-            <a  id="icons" class=" navbar-brand" href="{% url 'index' %}"><i class="fab fa-instagram"></i> <i style="border-left:1px solid rgba(0,0,0,0.4);"> </i> <i class="space"></i>  Instagram </a>
+            <a  id="icons" class=" navbar-brand" href="{% url 'login' %}"><i class="fab fa-instagram"></i> <i style="border-left:1px solid rgba(0,0,0,0.4);"> </i> <i class="space"></i>  Instagram </a>
           
           </div>
           <div class="col-md-4">
@@ -22,10 +22,10 @@
 
                 <h5>Welcome, {{user.username}}</h5>
         
-              <a class="uploads" ><i class="far fa-compass" style="font-size: xx-large;margin-left: 10px;"></i></a>
+              <!-- <a class="uploads" ><i class="far fa-compass" style="font-size: xx-large;margin-left: 10px;"></i></a>
 
               <a class="likes" ><i class="far fa-thumbs-up"style="font-size: xx-large;margin-left: 10px;"></i></a>
-            
+             -->
 
               <a class="upload_image" href="{% url 'upload_image' %}" > <i class="fas fa-file-upload" style="font-size: xx-large;margin-left: 10px;"></i></a>
          
@@ -33,11 +33,11 @@
               <a class="profile" href="{% url 'profile' %}"><i class="fas fa-id-badge" style="font-size: xx-large;margin-left: 10px;"></i></a>
 
               <a class="timeline" href="{% url 'stream'%}"><i class="fas fa-stream" style="font-size: xx-large;margin-left: 10px;"></i></a>
-              <a href="{% url 'logout' %}" style="margin-left: 10px;">Logout</a>
+            <h5> <a href="{% url 'logout' %}" style="margin-left: 10px;font: xx-large;">Logout</a></h5>
 
               {% else %}
-              <a href="{% url 'login' %}" style="margin-left: 10px;">Login</a>
-              <a href="{% url 'register' %}" style="margin-left: 10px;">Register</a>
+            <h5> <a href="{% url 'login' %}" style="margin-left: 10px;">Login</a></h5>
+          <h5><a href="{% url 'register' %}" style="margin-left: 10px;">Register</a></h5>
 
               {% endif %}
 
